@@ -1,7 +1,11 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "extends": ["@charrue/react-ts", "plugin:prettier/recommended"],
+  "extends": [
+    "@charrue/react-ts",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
   "rules": {
     "consistent-return": "off"
   },
@@ -13,5 +17,9 @@
   "globals": {
     "chrome": "readonly"
   },
-  "ignorePatterns": ["watch.js", "dist/**", "*.html"]
+  "ignorePatterns": [
+    "watch.js",
+    "dist/**",
+    "*.html"
+  ]
 }

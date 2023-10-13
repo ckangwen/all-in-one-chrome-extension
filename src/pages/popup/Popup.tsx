@@ -1,8 +1,11 @@
 import logo from "@/assets/img/logo.svg";
 import withSuspense from "@/components/withSuspense";
 import { useStorage } from "@/hooks";
+
 import "@/pages/popup/Popup.css";
+
 import exampleThemeStorage from "@/store/theme";
+import { Button } from "@root/src/components/ui/button";
 
 const Popup = () => {
   const theme = useStorage(exampleThemeStorage);
@@ -14,6 +17,7 @@ const Popup = () => {
         <p className="text-lime-400">
           Edit <code>src/pages/popup/Popup.tsx</code> and save to reload.
         </p>
+        <Button>Hello</Button>
         <a
           className="App-link"
           href="https://reactjs.org"

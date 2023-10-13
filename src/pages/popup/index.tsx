@@ -1,8 +1,9 @@
-import "@/pages/popup/index.css";
-import Popup from "@/pages/popup/Popup";
-import { attachTwindStyle } from "@root/src/libs/twind";
 import { createRoot } from "react-dom/client";
+import { attachTwindStyle } from "@/libs/twind";
 import refreshOnUpdate from "virtual:reload-on-update-in-view";
+import "@/pages/popup/index.css";
+
+import Popup from "@/pages/popup/Popup";
 
 refreshOnUpdate("pages/popup");
 

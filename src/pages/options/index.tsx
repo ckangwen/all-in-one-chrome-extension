@@ -6,10 +6,11 @@ import refreshOnUpdate from "virtual:reload-on-update-in-view";
 refreshOnUpdate("pages/options");
 
 function init() {
-  const appContainer = document.querySelector("#app-container");
+  const appContainer = document.querySelector("#app");
   if (!appContainer) {
     throw new Error("Can not find #app-container");
   }
+
   const root = createRoot(appContainer);
   root.render(<Options />);
 }
