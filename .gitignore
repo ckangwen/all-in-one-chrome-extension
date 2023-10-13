@@ -17,3 +17,4 @@ vite-plugin/reload/*.js
 vite-plugin/reload/injections/*.js
 public/manifest.json
 .history
+.github
