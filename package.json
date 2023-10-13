@@ -49,7 +49,7 @@
     "prettier": "^3.0.3",
     "rollup": "^4.0.2",
     "sass": "1.62.1",
-    "ts-loader": "9.4.2",
+    "ts-loader": "9.5.0",
     "typescript": "4.8.4",
     "vite": "3.2.7",
     "vitest": "^0.34.6",
