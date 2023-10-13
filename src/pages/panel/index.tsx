@@ -1,9 +1,8 @@
-import React from "react";
+import "@/pages/panel/index.css";
+import Panel from "@/pages/panel/Panel";
+import { attachTwindStyle } from "@root/src/libs/twind";
 import { createRoot } from "react-dom/client";
-import Panel from "@pages/panel/Panel";
-import "@pages/panel/index.css";
 import refreshOnUpdate from "virtual:reload-on-update-in-view";
-import { attachTwindStyle } from "@src/shared/style/twind";
 
 refreshOnUpdate("pages/panel");
 

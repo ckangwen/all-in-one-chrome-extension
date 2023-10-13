@@ -1,9 +1,8 @@
-import React from "react";
+import { attachTwindStyle } from "@/libs/twind";
+import "@/pages/newtab/index.css";
+import Newtab from "@/pages/newtab/Newtab";
 import { createRoot } from "react-dom/client";
-import Newtab from "@pages/newtab/Newtab";
-import "@pages/newtab/index.css";
 import refreshOnUpdate from "virtual:reload-on-update-in-view";
-import { attachTwindStyle } from "@src/shared/style/twind";
 
 refreshOnUpdate("pages/newtab");
 

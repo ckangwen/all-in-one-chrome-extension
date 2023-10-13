@@ -1,10 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path, { resolve } from "path";
-import makeManifest from "./utils/plugins/make-manifest";
-import customDynamicImport from "./utils/plugins/custom-dynamic-import";
-import addHmr from "./utils/plugins/add-hmr";
-import watchRebuild from "./utils/plugins/watch-rebuild";
+import makeManifest from "./vite-plugin/plugins/make-manifest";
+import customDynamicImport from "./vite-plugin/plugins/custom-dynamic-import";
+import addHmr from "./vite-plugin/plugins/add-hmr";
+import watchRebuild from "./vite-plugin/plugins/watch-rebuild";
 import manifest from "./manifest";
 
 const rootDir = resolve(__dirname);
@@ -24,9 +24,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@root": rootDir,
-      "@src": srcDir,
-      "@assets": assetsDir,
-      "@pages": pagesDir,
+      "@": srcDir,
     },
   },
   plugins: [

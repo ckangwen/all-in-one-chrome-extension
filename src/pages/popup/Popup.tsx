@@ -1,9 +1,8 @@
-import React from "react";
-import logo from "@assets/img/logo.svg";
-import "@pages/popup/Popup.css";
-import useStorage from "@src/shared/hooks/useStorage";
-import exampleThemeStorage from "@src/shared/storages/exampleThemeStorage";
-import withSuspense from "@src/shared/hoc/withSuspense";
+import logo from "@/assets/img/logo.svg";
+import withSuspense from "@/components/withSuspense";
+import { useStorage } from "@/hooks";
+import "@/pages/popup/Popup.css";
+import exampleThemeStorage from "@/store/theme";
 
 const Popup = () => {
   const theme = useStorage(exampleThemeStorage);

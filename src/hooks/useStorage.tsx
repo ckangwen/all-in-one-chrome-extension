@@ -1,26 +1,23 @@
+import { BaseStorage } from "@/libs/chrome";
 import { useSyncExternalStore } from "react";
-import { BaseStorage } from "@src/shared/storages/base";
 
 type WrappedPromise = ReturnType<typeof wrapPromise>;
 const storageMap: Map<BaseStorage<unknown>, WrappedPromise> = new Map();
 
-export default function useStorage<
+export function useStorage<
   Storage extends BaseStorage<Data>,
-  Data = Storage extends BaseStorage<infer Data> ? Data : unknown
+  Data = Storage extends BaseStorage<infer D> ? D : unknown,
 >(storage: Storage) {
-  const _data = useSyncExternalStore<Data | null>(
-    storage.subscribe,
-    storage.getSnapshot
-  );
+  const data = useSyncExternalStore<Data | null>(storage.subscribe, storage.getSnapshot);
 
   if (!storageMap.has(storage)) {
     storageMap.set(storage, wrapPromise(storage.get()));
   }
-  if (_data !== null) {
-    storageMap.set(storage, { read: () => _data });
+  if (data !== null) {
+    storageMap.set(storage, { read: () => data });
   }
 
-  return _data ?? (storageMap.get(storage)!.read() as Data);
+  return data ?? (storageMap.get(storage)!.read() as Data);
 }
 
 function wrapPromise<R>(promise: Promise<R>) {
@@ -34,7 +31,7 @@ function wrapPromise<R>(promise: Promise<R>) {
     (e) => {
       status = "error";
       result = e;
-    }
+    },
   );
 
   return {
