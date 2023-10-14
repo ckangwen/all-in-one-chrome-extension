@@ -1,4 +1,9 @@
 import reloadOnUpdate from "virtual:reload-on-update-in-background-script";
+import { setupContextMenu } from "@/libs/chrome";
+import {
+  contextMenus as ProductHuntContextMenus,
+  onContextMenuClick as onProductHuntContextMenuClick,
+} from "./producthunt";
 
 reloadOnUpdate("pages/background");
 
@@ -8,4 +13,9 @@ reloadOnUpdate("pages/background");
  */
 reloadOnUpdate("pages/content/style.scss");
 
-console.log("background loaded");
+setupContextMenu(
+  (info, tab) => {
+    onProductHuntContextMenuClick(info, tab);
+  },
+  [...ProductHuntContextMenus],
+);
