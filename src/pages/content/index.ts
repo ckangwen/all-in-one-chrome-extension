@@ -5,3 +5,4 @@ console.log("content loaded");
  * Chrome extensions don't support modules in content scripts.
  */
 import("./components/Demo");
+import("./setup");

@@ -1,3 +1,4 @@
+/// <reference types="vitest/globals" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path, { resolve } from "path";
@@ -10,17 +11,19 @@ import manifest from "./manifest";
 const rootDir = resolve(__dirname);
 const srcDir = resolve(rootDir, "src");
 const pagesDir = resolve(srcDir, "pages");
-const assetsDir = resolve(srcDir, "assets");
 const outDir = resolve(rootDir, "dist");
 const publicDir = resolve(rootDir, "public");
 
-const isDev = process.env.__DEV__ === "true";
+const isDev = process.env.NODE_ENV === "development";
 const isProduction = !isDev;
 
 // ENABLE HMR IN BACKGROUND SCRIPT
 const enableHmrInBackgroundScript = true;
 
 export default defineConfig({
+  test: {
+    globals: true,
+  },
   resolve: {
     alias: {
       "@root": rootDir,
@@ -58,9 +61,7 @@ export default defineConfig({
       },
       output: {
         entryFileNames: "src/pages/[name]/index.js",
-        chunkFileNames: isDev
-          ? "assets/js/[name].js"
-          : "assets/js/[name].[hash].js",
+        chunkFileNames: isDev ? "assets/js/[name].js" : "assets/js/[name].[hash].js",
         assetFileNames: (assetInfo) => {
           const { dir, name: _name } = path.parse(assetInfo.name);
           const assetFolder = dir.split("/").at(-1);

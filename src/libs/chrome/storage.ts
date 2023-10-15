@@ -64,9 +64,7 @@ export function createStorage<D>(
     };
   };
 
-  const getSnapshot = () => {
-    return cache;
-  };
+  const getSnapshot = () => cache;
 
   getDataFromStorage().then((data) => {
     cache = data;

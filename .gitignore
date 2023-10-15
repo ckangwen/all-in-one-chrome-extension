@@ -18,3 +18,4 @@ vite-plugin/reload/injections/*.js
 public/manifest.json
 .history
 .github
+src/config.ts

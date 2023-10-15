@@ -1,16 +1,18 @@
-import { ContextMenusCreatePropertiesTree, OnContextMenusClick } from "@/libs/chrome";
+import {
+  ContextMenusCreatePropertiesTree,
+  OnContextMenusClick,
+  productHuntNextDataMessage,
+} from "@/libs/chrome";
 import { saveToNotion } from "./saveToNotion";
-
-const UrlPatterns = ["https://www.producthunt.com/*"];
 
 export const contextMenus: ContextMenusCreatePropertiesTree[] = [
   {
     title: "Product Hunt",
-    documentUrlPatterns: UrlPatterns,
+    documentUrlPatterns: ["https://www.producthunt.com/*"],
     children: [
       {
         title: "Save To Notion",
-        documentUrlPatterns: UrlPatterns,
+        documentUrlPatterns: ["https://www.producthunt.com/posts/*"],
       },
     ],
   },
@@ -18,5 +20,8 @@ export const contextMenus: ContextMenusCreatePropertiesTree[] = [
 
 export const onContextMenuClick: OnContextMenusClick = (info) => {
   const currentUrl = info.pageUrl;
-  saveToNotion(currentUrl);
+
+  productHuntNextDataMessage.sendMessage().then((res) => {
+    saveToNotion(currentUrl, res);
+  });
 };

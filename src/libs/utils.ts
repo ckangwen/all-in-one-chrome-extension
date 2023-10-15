@@ -19,3 +19,11 @@ export const nanoid = customAlphabet(
   "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   10,
 );
+
+export function tryJsonParse(input: string) {
+  try {
+    return JSON.parse(input);
+  } catch (e) {
+    return null;
+  }
+}

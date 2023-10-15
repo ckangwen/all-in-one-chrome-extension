@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // "moduleResolution": "bundler",
     "noEmit": true,
     "baseUrl": ".",
     "allowJs": false,
@@ -30,14 +31,17 @@
       "@/*": [
         "src/*"
       ],
-      "virtual:reload-on-update-in-background-script": ["./src/global.d.ts"],
-      "virtual:reload-on-update-in-view": ["./src/global.d.ts"]
+      "virtual:reload-on-update-in-background-script": [
+        "./src/global.d.ts"
+      ],
+      "virtual:reload-on-update-in-view": [
+        "./src/global.d.ts"
+      ]
     }
   },
   "include": [
     "src",
     "vite-plugin",
-    "vite.config.ts",
-    "node_modules/@types"
+    "vite.config.ts"
   ]
 }
