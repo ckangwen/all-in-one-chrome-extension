@@ -1,7 +1,7 @@
-import typescript from "@rollup/plugin-typescript";
+import esbuild from "rollup-plugin-esbuild";
 import { defineConfig } from "rollup";
 
-const plugins = [typescript()];
+const plugins = [esbuild()];
 
 export default defineConfig([
   {

@@ -15,9 +15,7 @@ const clientsThatNeedToUpdate: Set<WebSocket> = new Set();
 function initReloadServer() {
   const wss = new WebSocketServer({ port: LOCAL_RELOAD_SOCKET_PORT });
 
-  wss.on("listening", () =>
-    console.log(`[HRS] Server listening at ${LOCAL_RELOAD_SOCKET_URL}`)
-  );
+  wss.on("listening", () => console.log(`[HRS] Server listening at ${LOCAL_RELOAD_SOCKET_URL}`));
 
   wss.on("connection", (ws) => {
     clientsThatNeedToUpdate.add(ws);
@@ -32,7 +30,7 @@ function initReloadServer() {
   });
 }
 
-/** CHECK:: src file was updated **/
+/** CHECK:: src file was updated * */
 const debounceSrc = debounce(function (path: string) {
   // Normalize path on Windows
   const pathConverted = path.replace(/\\/g, "/");
@@ -41,14 +39,14 @@ const debounceSrc = debounce(function (path: string) {
       MessageInterpreter.send({
         type: UPDATE_PENDING_MESSAGE,
         path: pathConverted,
-      })
-    )
+      }),
+    ),
   );
   // Delay waiting for public assets to be copied
 }, 400);
 chokidar.watch("src").on("all", (event, path) => debounceSrc(path));
 
-/** CHECK:: build was completed **/
+/** CHECK:: build was completed * */
 const debounceDist = debounce(() => {
   clientsThatNeedToUpdate.forEach((ws: WebSocket) => {
     ws.send(MessageInterpreter.send({ type: UPDATE_REQUEST_MESSAGE }));
