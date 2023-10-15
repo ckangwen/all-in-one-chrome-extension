@@ -3,7 +3,7 @@ import { useStorage } from "@/hooks";
 import "@/pages/newtab/Newtab.css";
 import "@/pages/newtab/Newtab.scss";
 import exampleThemeStorage from "@/store/theme";
-import withSuspense from "@root/src/components/withSuspense";
+import withSuspense from "@/components/withSuspense";
 
 const Newtab = () => {
   const theme = useStorage(exampleThemeStorage);

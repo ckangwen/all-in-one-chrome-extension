@@ -5,7 +5,7 @@ import { useStorage } from "@/hooks";
 import "@/pages/popup/Popup.css";
 
 import exampleThemeStorage from "@/store/theme";
-import { Button } from "@root/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const Popup = () => {
   const theme = useStorage(exampleThemeStorage);
