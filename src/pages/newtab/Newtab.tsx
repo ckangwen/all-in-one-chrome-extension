@@ -4,6 +4,7 @@ import "@/pages/newtab/Newtab.css";
 import "@/pages/newtab/Newtab.scss";
 import exampleThemeStorage from "@/store/theme";
 import withSuspense from "@/components/withSuspense";
+import { Button } from "@/components/ui/button";
 
 const Newtab = () => {
   const theme = useStorage(exampleThemeStorage);
@@ -12,6 +13,7 @@ const Newtab = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Button>Nice</Button>
         <p>
           Edit <code>src/pages/newtab/Newtab.tsx</code> and save to reload.
         </p>

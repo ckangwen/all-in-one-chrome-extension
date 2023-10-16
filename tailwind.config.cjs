@@ -1,9 +1,10 @@
-import { defineConfig } from "@twind/core";
-import presetAutoprefix from "@twind/preset-autoprefix";
-import presetTailwind from "@twind/preset-tailwind";
-
-export default defineConfig({
-  presets: [presetAutoprefix(), presetTailwind()],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    './src/pages/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}'
+	],
   theme: {
     container: {
       center: true,
@@ -69,4 +70,5 @@ export default defineConfig({
       },
     },
   },
-});
+  plugins: [require("tailwindcss-animate")],
+}

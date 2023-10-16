@@ -21,7 +21,8 @@ export const contextMenus: ContextMenusCreatePropertiesTree[] = [
 export const onContextMenuClick: OnContextMenusClick = (info) => {
   const currentUrl = info.pageUrl;
 
-  productHuntNextDataMessage.sendMessage().then((res) => {
-    saveToNotion(currentUrl, res);
-  });
+  console.log("currentUrl", currentUrl);
+  // productHuntNextDataMessage.sendMessage().then((res) => {
+  //   saveToNotion(currentUrl, res);
+  // });
 };
